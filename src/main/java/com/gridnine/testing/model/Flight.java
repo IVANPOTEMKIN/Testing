@@ -6,7 +6,17 @@ import java.util.stream.Collectors;
 /**
  * Компонент, представляющий собой полет.
  */
-public record Flight(List<Segment> segments) {
+public class Flight {
+
+    private final List<Segment> segments;
+
+    public Flight(List<Segment> segments) {
+        this.segments = segments;
+    }
+
+    public List<Segment> getSegments() {
+        return segments;
+    }
 
     @Override
     public String toString() {

@@ -16,8 +16,8 @@ public class Segment {
     public Segment(LocalDateTime dep,
                    LocalDateTime arr) {
 
-        departureDate = Objects.requireNonNull(dep);
-        arrivalDate = Objects.requireNonNull(arr);
+        this.departureDate = Objects.requireNonNull(dep);
+        this.arrivalDate = Objects.requireNonNull(arr);
     }
 
     public LocalDateTime getDepartureDate() {

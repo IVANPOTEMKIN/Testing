@@ -19,7 +19,7 @@ public class FlightFilterImpl implements FlightFilter {
     @Override
     public List<Flight> departureBeforeCurrentTime(List<Flight> flights) {
         return flights.stream()
-                .filter(flight -> flight.segments()
+                .filter(flight -> flight.getSegments()
                         .stream()
                         .allMatch(segment -> segment.getDepartureDate().isAfter(now())))
                 .collect(Collectors.toList());
@@ -28,7 +28,7 @@ public class FlightFilterImpl implements FlightFilter {
     @Override
     public List<Flight> arrivalBeforeDeparture(List<Flight> flights) {
         return flights.stream()
-                .filter(flight -> flight.segments()
+                .filter(flight -> flight.getSegments()
                         .stream()
                         .allMatch(segment -> segment.getArrivalDate().isAfter(segment.getDepartureDate())))
                 .collect(Collectors.toList());
@@ -37,7 +37,7 @@ public class FlightFilterImpl implements FlightFilter {
     @Override
     public List<Flight> exceedingTimeStay(List<Flight> flights) {
         return flights.stream()
-                .filter(flight -> checkTimeStay(flight.segments()))
+                .filter(flight -> checkTimeStay(flight.getSegments()))
                 .collect(Collectors.toList());
     }
 
